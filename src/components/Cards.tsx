@@ -1,15 +1,20 @@
 import React from "react";
 import { Card } from "./Card";
+import { Character } from "../data/fma-data";
 import "../styles/cards.css";
 
-export class Cards extends React.Component {
+type CardsProps = {
+  characters : Character[]
+}
+
+export class Cards extends React.Component <CardsProps>{
   render() {
-    const { data } = this.props;
+    const { characters } = this.props;
 
     return (
       <>
         <section id="character-cards">
-          {data.map((character, index) => (
+          {characters.map((character, index) => (
             <Card character={character} index={index} />
           ))}
         </section>

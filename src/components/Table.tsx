@@ -1,8 +1,14 @@
+import { Character } from "../data/fma-data";
 import "../styles/table.css";
 
-export function Table({ data }) {
-  const sortedCharacters = [...data].sort((a, b) => b.votes - a.votes);
-  const topCharacters = sortedCharacters.slice(0, 5);
+
+type TableProps = {
+  characters : Character[]
+}
+
+export function Table({ characters } : TableProps) {
+  const sortedCharacters : Character[] = [...characters].sort((a, b) => b.votes - a.votes);
+  const topCharacters : Character[] = sortedCharacters.slice(0, 5);
 
   return (
     <section id="character-ratings">
